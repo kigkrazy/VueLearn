@@ -1,36 +1,67 @@
-## 目录树
-```
-.
-├── README.md
-├── build
-├── config
-├── index.html
-├── node_modules
-├── package.json
-├── src
-├── static
-└── test
-```
-## 目录解析
+## 独立安装
+直接下载并用`<script>`标签引入，`Vue`会被注册为一个全局变量。
+[开发者版本](https://vuejs.org/js/vue.js) : 包含完整的警告和调试模式
+[生产版本](https://vuejs.org/js/vue.min.js) : 删除了警告，30.90KB min+gzip
 
-| 目录/文件    | 说明                                                     |
-| ------------ | -------------------------------------------------------- |
-| build        | 项目构建(webpack)相关代码                                |
-| config       | 配置目录，包括端口号等。我们初学可以使用默认的。         |
-| node_modules | npm 加载的项目依赖模块                                   |
-| static       | 静态资源目录，如图片、字体等。                           |
-| test         | 初始测试目录，可删除                                     |
-| .xxxx文件    | 这些是一些配置文件，包括语法配置，git配置等。            |
-| index.html   | 首页入口文件，你可以添加一些 meta 信息或统计代码啥的。   |
-| package.json | 项目配置文件。                                           |
-| README.md    | 项目的说明文档，markdown 格式                            |
-| src          | 这里是我们要开发的目录，基本上要做的事情都在这个目录里。 |
-| router       | 地址路由映射表                                           |
-### 此处重点说一下src  
-里面包含了几个目录及文件：
-* assets: 放置一些图片，如logo等。
-* components: 目录里面放了一个组件文件，可以不用。
-* App.vue: 项目入口文件，我们也可以直接将组件写这里，而不使用 components 目录。
-* main.js: 项目的核心文件。
+具体代码参考demo中的`index-独立安装.html`。
 
-## 对基础项目进行修改
+## 使用CDN方法
+CDN有三处：**BootCDN**、**unpkg**、**cdnjs**。
+
+## npm方法
+### 安装环境
+1. 下载nodejs安装
+2. 注册cnpm。[参考](http://npm.taobao.org/)  
+命令行直接执行：
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+3. 安装vue-cli  
+```
+# 全局安装 vue-cli
+cnpm install --global vue-cli
+```
+### 生成用例
+
+1. 生成用例
+```
+# 创建一个基于 webpack 模板的新项目
+$ vue init webpack vue-demo
+# 这里需要进行一些配置，默认回车即可
+This will install Vue 2.x version of the template.
+
+For Vue 1.x use: vue init webpack#1.0 vue-demo
+
+? Project name vue-demo
+? Project description A Vue.js project
+? Author runoob <test@runoob.com>
+? Vue build standalone
+? Use ESLint to lint your code? Yes
+? Pick an ESLint preset Standard
+? Setup unit tests with Karma + Mocha? Yes
+? Setup e2e tests with Nightwatch? Yes
+
+   vue-cli · Generated "vue-demo".
+
+   To get started:
+   
+     cd vue-demo
+     npm install
+     npm run dev
+   
+   Documentation can be found at https://vuejs-templates.github.io/webpack
+```
+
+2. 执行用例
+```
+$ cd vue-demo
+$ cnpm install
+$ cnpm run dev
+ DONE  Compiled successfully in 4388ms
+
+> Listening at http://localhost:8080
+```
+
+此时访问： [http://localhost:8080](http://localhost:8080)即可看到界面。
+
+
